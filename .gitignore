@@ -1,2 +1,3 @@
-# Any compiled folders
+# Any compiled folders, at any level
 bin/
+obj/

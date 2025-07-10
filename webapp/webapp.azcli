@@ -8,7 +8,7 @@ location="eastus2"
 os="linux"
 
 # Create the app
-dotnet new webapp -n $appname --framework net8.0
+dotnet new webapp -n $appname --framework net9.0
 cd $appname
 
 # run the app

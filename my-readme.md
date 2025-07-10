@@ -15,7 +15,7 @@ PS1='%1~ $ '
 ## Init local git
 git init
 git add .
-git commit -m "first commit"
+git commit -m "first local commit"
 git branch -M main
-git remote add origin https://github.com/pietronromano/azautomation.git
+git remote add origin https://github.com/pietronromano/azcli.git
 git push -u origin main
