@@ -1,0 +1,83 @@
+{
+    "records": [
+        {
+            "time": "2025-07-07T16:20:44.3052102Z",
+            "flowLogGUID": "11f01bc3-dd4f-48f2-a538-a95c4bb24a6a",
+            "macAddress": "7C1E52BA1384",
+            "category": "FlowLogFlowEvent",
+            "flowLogResourceID": "/SUBSCRIPTIONS/8F45E7EC-8404-4723-AA20-FC58A7C4C120/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2/FLOWLOGS/VNET-EUS-RG-EUS-FLOWLOG",
+            "targetResourceID": "/subscriptions/8f45e7ec-8404-4723-aa20-fc58a7c4c120/resourceGroups/rg-eus/providers/Microsoft.Network/virtualNetworks/vnet-eus",
+            "flowLogVersion": 4,
+            "operationName": "FlowLogFlowEvent",
+            "flowRecords": {
+                "flows": [
+                    {
+                        "aclID": "00000000-0000-0000-0000-000000000000",
+                        "flowGroups": [
+                            {
+                                "rule": "PlatformRule",
+                                "flowTuples": [
+                                    "1751905208059,40.87.160.0,10.3.1.4,23456,28959,6,I,B,NX,0,0,0,0",
+                                    "1751905213095,40.87.160.0,10.3.1.4,23456,28959,6,I,E,NX,1,128,1,54"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "time": "2025-07-07T16:21:44.3426857Z",
+            "flowLogGUID": "11f01bc3-dd4f-48f2-a538-a95c4bb24a6a",
+            "macAddress": "7C1E52BA1384",
+            "category": "FlowLogFlowEvent",
+            "flowLogResourceID": "/SUBSCRIPTIONS/8F45E7EC-8404-4723-AA20-FC58A7C4C120/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2/FLOWLOGS/VNET-EUS-RG-EUS-FLOWLOG",
+            "targetResourceID": "/subscriptions/8f45e7ec-8404-4723-aa20-fc58a7c4c120/resourceGroups/rg-eus/providers/Microsoft.Network/virtualNetworks/vnet-eus",
+            "flowLogVersion": 4,
+            "operationName": "FlowLogFlowEvent",
+            "flowRecords": {
+                "flows": [
+                    {
+                        "aclID": "00000000-0000-0000-0000-000000000000",
+                        "flowGroups": [
+                            {
+                                "rule": "PlatformRule",
+                                "flowTuples": [
+                                    "1751905189000,40.87.160.0,10.3.1.4,23456,28957,6,I,E,NX,1,128,1,54"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "aclID": "/subscriptions/8f45e7ec-8404-4723-aa20-fc58a7c4c120/resourceGroups/rg-eus/providers/Microsoft.Network/networkSecurityGroups/vm-eus-frontNSG",
+                        "flowGroups": [
+                            {
+                                "rule": "UserRule_open-port-80",
+                                "flowTuples": [
+                                    "1751905236030,83.39.80.151,10.3.1.4,63428,80,6,I,B,NX,0,0,0,0",
+                                    "1751905241003,83.39.80.151,10.3.1.4,63427,80,6,I,E,NX,6,735,4,543",
+                                    "1751905239093,83.39.80.151,10.3.1.4,63426,80,6,I,E,NX,6,735,4,543"
+                                ]
+                            },
+                            {
+                                "rule": "DefaultRule_DenyAllInBound",
+                                "flowTuples": [
+                                    "1751905238020,18.117.57.162,10.3.1.4,60424,8092,6,I,D,NX,0,0,0,0",
+                                    "1751905262024,77.90.185.47,10.3.1.4,42294,5432,6,I,D,NX,0,0,0,0",
+                                    "1751905263061,176.65.148.243,10.3.1.4,42992,61617,6,I,D,NX,0,0,0,0",
+                                    "1751905275071,52.180.137.70,10.3.1.4,57010,102,6,I,D,NX,0,0,0,0",
+                                    "1751905275095,205.210.31.101,10.3.1.4,57081,106,6,I,D,NX,0,0,0,0",
+                                    "1751905279045,5.188.206.54,10.3.1.4,8080,28835,6,I,D,NX,0,0,0,0",
+                                    "1751905285033,38.132.109.104,10.3.1.4,43528,3128,6,I,D,NX,0,0,0,0",
+                                    "1751905288021,148.113.210.228,10.3.1.4,37399,4505,6,I,D,NX,0,0,0,0",
+                                    "1751905290098,196.251.91.85,10.3.1.4,45177,27017,6,I,D,NX,0,0,0,0",
+                                    "1751905294078,103.186.101.248,10.3.1.4,39166,4145,6,I,D,NX,0,0,0,0"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

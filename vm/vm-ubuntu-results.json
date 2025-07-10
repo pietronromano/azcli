@@ -1,0 +1,11 @@
+{
+  "fqdns": "",
+  "id": "/subscriptions/8f45e7ec-8404-4723-aa20-fc58a7c4c120/resourceGroups/rg-eus/providers/Microsoft.Compute/virtualMachines/vm-eus-front",
+  "location": "eastus2",
+  "macAddress": "7C-1E-52-BA-13-84",
+  "powerState": "VM running",
+  "privateIpAddress": "10.3.1.4",
+  "publicIpAddress": "68.154.8.126",
+  "resourceGroup": "rg-eus",
+  "zones": ""
+}

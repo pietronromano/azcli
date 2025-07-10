@@ -1,0 +1,26 @@
+# SOURCE: https://learn.microsoft.com/en-us/azure/app-service/quickstart-dotnetcore?tabs=net80&pivots=development-environment-cli
+# DATE: 10-07-2025
+
+# Variables
+appname="pnr-eus-myfirstwebapp"
+rg="rg-eus"
+location="eastus2"
+os="linux"
+
+# Create the app
+dotnet new webapp -n $appname --framework net8.0
+cd $appname
+
+# run the app
+dotnet run --urls=https://localhost:5001/
+CTRL+C
+
+# Deploy to Azure
+# Login to  my tenant (599fd2f6-80be-4f0d-9b03-b3e74fdcf211), avoiding work tenant 
+az login --tenant pietronromanolive.onmicrosoft.com
+
+# Private endpoints are available for Windows and Linux apps, containerized or not, hosted on the following App Service plans: Basic, Standard, PremiumV2, PremiumV3, IsolatedV2, Functions Premium (sometimes called the Elastic Premium plan).
+az webapp up --sku S1 --name $appname --os-type $os --location $location --resource-group $rg
+
+# Update Pages/Index.cshtml locally, then redeploy
+az webapp up --os-type $os

@@ -1,0 +1,70 @@
+
+# Resource group
+rg="rg-eus"
+location="eastus2"
+az group create --name $rg --location $location
+
+# vnet
+vnet="vnet-eus"
+subnet="front-tier"
+subnet="middle-tier"
+
+# vm
+vm="vm-eus-front"
+vm="vm-eus-middle"
+vm="vm-eus-middle-2"
+
+# List vms
+az vm image list --output table
+# List available skus (--all lists ALL skus, available or not) --size Standard_D
+az vm list-skus --location $location  --output table
+
+az vm create \
+    --resource-group $rg \
+    --name $vm \
+    --image Ubuntu2404 \
+    --size Standard_D2ds_v6 \
+    --admin-username pietronromano \
+    --generate-ssh-keys \
+    --vnet-name $vnet \
+    --subnet $subnet \
+    --custom-data vm-ubuntu-cloud-init.txt
+
+az vm auto-shutdown -g $rg -n $vm --time 1730 --email "pietronromano@live.com" 
+
+# Open port
+az vm open-port --port 80 --resource-group $rg --name $vm
+curl $ip
+
+# Connect
+ip=$(az vm show --show-details --resource-group $rg --name $vm --query publicIps --output tsv)
+echo $ip
+ssh -i ~/.ssh/id_rsa.pem pietronromano@$ip
+
+# vm-eus-front
+ssh -i ~/.ssh/id_rsa.pem pietronromano@68.154.8.126
+
+# vm-eus-middle-2
+ssh -i ~/.ssh/id_rsa.pem pietronromano@172.200.50.138
+
+
+# From inside VM, curl to http site (NOTE: 502 Bad Gateway will happen if admin-username doesn't match init owner)
+curl localhost
+exit
+
+
+# NOTE! After stopping, node.js app doesn't restart automatically -> have to start manually
+pietronromano@vm-eus-front:~$ cd "/home/azureuser/myapp"
+pietronromano@vm-eus-front:/home/azureuser/myapp$ nodejs index.js
+Hello world app listening on port 3000!
+
+# Start / Stop
+az vm start -g $rg -n $vm
+az vm stop -g $rg -n $vm
+
+# delete vm (NOTE: doesn't delete related resources)
+az vm delete \
+    --resource-group $rg \
+    --name $vm \
+    --force-deletion true
+    --yes

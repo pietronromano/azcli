@@ -1,0 +1,20 @@
+
+# SOURCE: https://learn.microsoft.com/en-us/azure/private-link/create-private-endpoint-cli
+
+# Variables
+rg="rg-eus"
+location="eastus2"
+vnet="vnet-eus"
+subnet="front-tier"
+storage="pnrsaeu"
+
+# Get groupId: blob, table, queue, file
+# SEE https://learn.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create
+az network private-link-resource list -g $rg --type Microsoft.Storage/storageAccounts -n $storage
+
+
+# connect to VM
+ssh -i ~/.ssh/id_rsa.pem pietronromano@68.154.8.126
+
+# From within VM, nslookup to Storage Account Private Endpoint
+nslookup pnrsaeu.privatelink.blob.core.windows.net

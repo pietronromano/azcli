@@ -1,0 +1,7 @@
+# Login to  my tenant (599fd2f6-80be-4f0d-9b03-b3e74fdcf211), avoiding work tenant 
+az login --tenant pietronromanolive.onmicrosoft.com
+
+# default Subscription Id: 8f45e7ec-8404-4723-aa20-fc58a7c4c120
+
+# See the full list of available regions 
+az account list-locations -o table
