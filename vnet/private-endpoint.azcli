@@ -8,10 +8,10 @@ vnet="vnet-eus"
 subnet="front-tier"
 storage="pnrsaeu"
 
-# Get groupId: blob, table, queue, file
+
+# Storage Account: Get groupId: blob, table, queue, file
 # SEE https://learn.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create
 az network private-link-resource list -g $rg --type Microsoft.Storage/storageAccounts -n $storage
-
 
 # connect to VM
 ssh -i ~/.ssh/id_rsa.pem pietronromano@68.154.8.126

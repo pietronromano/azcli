@@ -42,10 +42,10 @@ echo $ip
 ssh -i ~/.ssh/id_rsa.pem pietronromano@$ip
 
 # vm-eus-front
-ssh -i ~/.ssh/id_rsa.pem pietronromano@68.154.8.126
+ssh -i ~/.ssh/id_rsa pietronromano@68.154.8.126
 
 # vm-eus-middle-2
-ssh -i ~/.ssh/id_rsa.pem pietronromano@172.200.50.138
+ssh -i ~/.ssh/id_rsa pietronromano@172.200.50.138
 
 
 # From inside VM, curl to http site (NOTE: 502 Bad Gateway will happen if admin-username doesn't match init owner)
