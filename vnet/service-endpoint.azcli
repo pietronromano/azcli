@@ -187,7 +187,7 @@ az vm create \
 # Go to VM, Run Command
 
 ## Enter the storage account key for the allowed storage account that you recorded earlier.
-$storageAcctKey1 = "JnQKunnutQX5ugDaRKJ8APIkz3nqvHzrZ/pwMIklvB4SQXvlyCbwqTX6cqJ/fcrFWs/Bfa4sotl6+AStxxipAw=="
+$storageAcctKey1 = ""
 $acctKey = ConvertTo-SecureString -String $storageAcctKey1 -AsPlainText -Force
 ## Replace the login account with the name of the storage account you created.
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList ("Azure\pnrallowedaccount"), $acctKey
@@ -196,7 +196,7 @@ New-PSDrive -Name Z -PSProvider FileSystem -Root "\\pnrallowedaccount.file.core.
 
 
 ## Enter the storage account key for the denied storage account that you recorded earlier.
-$storageAcctKey2 = "CvlT+ppJyTHcuFr4xbihYsWT56OFMFMl00Zd/6Nly3H9bsCU+8kipYGHAiz4vo8C+2FAkBOCLmuU+ASt8nptWg=="
+$storageAcctKey2 = ""
 $acctKey = ConvertTo-SecureString -String $storageAcctKey2 -AsPlainText -Force
 ## Replace the login account with the name of the storage account you created.
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList ("Azure\pnrdeniedaccount"), $acctKey
