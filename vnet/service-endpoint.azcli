@@ -75,7 +75,7 @@ az storage account create \
   --sku Standard_LRS \
   --kind StorageV2
 
-# Use the same command to create the denied Azure storage account, but change the name to deniedaccount.
+## Use the same command to create the denied Azure storage account, but change the name to deniedaccount.
 storageAcctName2="pnrdeniedaccount"
 
 az storage account create \
