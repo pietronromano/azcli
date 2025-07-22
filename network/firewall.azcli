@@ -1,6 +1,6 @@
 # SOURCE: https://learn.microsoft.com/en-us/azure/firewall/deploy-cli
 # DATE: 17-07-2025
-# RESULTS: OK, worked fine
+# RESULTS: KO, Couldn't get access to VM web site to work, even directly without firewall
 
 # Variables
 rg="rg-fw"

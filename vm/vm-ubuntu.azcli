@@ -19,6 +19,11 @@ az vm image list --output table
 # List available skus (--all lists ALL skus, available or not) --size Standard_D
 az vm list-skus --location $location  --output table
 
+## NOTE: must execute this command from the SAME folder as the cloud-init: otherwise won't be included and no warning is given
+cd /Users/macbookpro/dev/azure/azcli/vm
+cloud_init="vm-ubuntu-cloud-init.txt"
+cat $cloud_init
+
 az vm create \
     --resource-group $rg \
     --name $vm \
@@ -28,34 +33,37 @@ az vm create \
     --generate-ssh-keys \
     --vnet-name $vnet \
     --subnet $subnet \
-    --custom-data vm-ubuntu-cloud-init.txt
+    --custom-data $cloud_init
 
 az vm auto-shutdown -g $rg -n $vm --time 1730 --email "pietronromano@live.com" 
 
 # Open port
 az vm open-port --port 80 --resource-group $rg --name $vm
-curl $ip
+
 
 # Connect
 ip=$(az vm show --show-details --resource-group $rg --name $vm --query publicIps --output tsv)
 echo $ip
-ssh -i ~/.ssh/id_rsa.pem pietronromano@$ip
+ssh -i ~/.ssh/id_rsa pietronromano@$ip
+curl $ip
 
-# vm-eus-front
-ssh -i ~/.ssh/id_rsa pietronromano@68.154.8.126
 
-# vm-eus-middle-2
-ssh -i ~/.ssh/id_rsa pietronromano@172.200.50.138
+
 
 
 # From inside VM, curl to http site (NOTE: 502 Bad Gateway will happen if admin-username doesn't match init owner)
 curl localhost
+
+# Debug the clout-init logs:
+less /var/log/cloud-init-output.log
+grep "nginx" /var/log/cloud-init-output.log
+
 exit
 
 
 # NOTE! After stopping, node.js app doesn't restart automatically -> have to start manually
-pietronromano@vm-eus-front:~$ cd "/home/azureuser/myapp"
-pietronromano@vm-eus-front:/home/azureuser/myapp$ nodejs index.js
+pietronromano@vm-eus-front:~$ cd "/home/pietronromano/myapp"
+pietronromano@vm-eus-front:/home/pietronromano/myapp$ nodejs index.js
 Hello world app listening on port 3000!
 
 # Start / Stop

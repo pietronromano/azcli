@@ -2,7 +2,7 @@
 
 # Visual Studio
 - Install extension Azure CLI Tools 
-- Run Selected Text in Active Terminal
+- "Run Selected Text in Active Terminal"
     - CTRL|CMD+SHIFT+P -> GOTO Preferences: 
     - Open Keyboard Shortcuts -> Terminal -> Run Selected Text in Active Terminal
 
